@@ -169,7 +169,7 @@ class QRCode
      */
     protected function create($actionName, $actionInfo, $temporary = true, $expireSeconds = null)
     {
-        $expireSeconds !== null || $expireSeconds = 7 * self::DAY;
+        $expireSeconds !== null || $expireSeconds = 30 * self::DAY;
 
         $http = new Http(new AccessToken($this->appId, $this->appSecret));
 
@@ -179,7 +179,7 @@ class QRCode
                   );
 
         if ($temporary) {
-            $params['expire_seconds'] = min($expireSeconds, 7 * self::DAY);
+            $params['expire_seconds'] = min($expireSeconds, 30 * self::DAY);
         }
 
         return new Bag($http->jsonPost(self::API_CREATE, $params));

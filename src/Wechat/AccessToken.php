@@ -47,7 +47,7 @@ class AccessToken
      *
      * @var string
      */
-    protected $cacheKey = 'overtrue.wechat.access_token';
+    protected static $cacheKey = 'overtrue.wechat.access_token';
 
     // API
     const API_TOKEN_GET = 'https://api.weixin.qq.com/cgi-bin/token';
@@ -85,7 +85,7 @@ class AccessToken
      */
     public function getToken($forceRefresh = false)
     {
-        $cacheKey = $this->cacheKey;
+        $cacheKey = self::$cacheKey;
 
         $cached = $this->cache->get($cacheKey);
 
@@ -124,16 +124,16 @@ class AccessToken
     /**
      * @return string
      */
-    public function getCacheKey()
+    public static function getCacheKey()
     {
-        return $this->cacheKey;
+        return self::$cacheKey;
     }
 
     /**
      * @param string $cacheKey
      */
-    public function setCacheKey($cacheKey)
+    public static function setCacheKey($cacheKey)
     {
-        $this->cacheKey = $cacheKey;
+        self::$cacheKey = $cacheKey;
     }
 }

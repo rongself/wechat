@@ -120,4 +120,20 @@ class AccessToken
 
         return $token;
     }
+
+    /**
+     * @return string
+     */
+    public function getCacheKey()
+    {
+        return $this->cacheKey;
+    }
+
+    /**
+     * @param string $cacheKey
+     */
+    public function setCacheKey($cacheKey)
+    {
+        $this->cacheKey = $cacheKey;
+    }
 }

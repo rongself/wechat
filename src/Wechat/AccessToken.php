@@ -62,7 +62,7 @@ class AccessToken
     {
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
-        $this->cacheKey = $this->cacheKey.'.'.$appId;
+        self::$cacheKey  = self::$cacheKey.'.'.$appId;
         $this->cache     = new Cache($appId);
     }
 
